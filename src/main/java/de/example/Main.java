@@ -18,6 +18,9 @@ public class Main {
             signum = (c == 45) ? -1 : signum;
             if (Character.isDigit(c)) {
                 int digit = c - '0';
+                if (output > (Integer.MAX_VALUE / 10) + digit) {
+                    return signum == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+                }
                 output = output * 10 + digit;
             }
         }
